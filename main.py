@@ -11,7 +11,7 @@ load_dotenv()
 
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", None)
 
-MAX_FILE_SIZE = 25 * 1024 * 1024  # 25 MB
+MAX_FILE_SIZE = 50 * 1024 * 1024  # 25 MB
 FILE_TOO_LARGE_MESSAGE = "The audio file is too large for the current size and rate limits using Whisper. If you used a YouTube link, please try a shorter video clip. If you uploaded an audio file, try trimming or compressing the audio to under 25 MB."
 
 audio_file_path = None
@@ -24,7 +24,7 @@ if 'groq' not in st.session_state:
         st.session_state.groq = Groq()
 
 st.set_page_config(
-    page_title="GroqNotes",
+    page_title="Renesis",
     page_icon="🗒️",
 )
       
@@ -209,7 +209,7 @@ def generate_notes_structure(transcript: str, model: str = "llama3-70b-8192"):
                 "content": f"### Transcript {transcript}\n\n### Example\n\n{shot_example}### Instructions\n\nCreate a structure for comprehensive notes on the above transcribed audio. Section titles and content descriptions must be comprehensive. Quality over quantity."
             }
         ],
-        temperature=0.3,
+        temperature=0,
         max_tokens=8000,
         top_p=1,
         stream=False,
@@ -228,7 +228,7 @@ def generate_section(transcript: str, existing_notes: str, section: str, model: 
         messages=[
             {
                 "role": "system",
-                "content": "You are an expert writer. Generate a comprehensive note for the section provided based factually on the transcript provided. Do *not* repeat any content from previous sections."
+                "content": "You are an expert Meeting NoteTaker Specially Tasked to make sure no actionable Items are missed. Generate a comprehensive note for the section provided based factually on the transcript provided. Do *not* repeat any content from previous sections."
             },
             {
                 "role": "user",
@@ -264,7 +264,7 @@ if 'statistics_text' not in st.session_state:
     st.session_state.statistics_text = ""
 
 st.write("""
-# GroqNotes: Create structured notes from audio 🗒️⚡
+# EasyNote: Create structured notes from direct audio 🗒️⚡
 """)
 
 def disable():
@@ -293,8 +293,8 @@ try:
             }
         }
 
-        st.write(f"# 🗒️ GroqNotes \n## Generate notes from audio in seconds using Groq, Whisper, and Llama3")
-        st.markdown(f"[Github Repository](https://github.com/bklieger/groqnotes)\n\nAs with all generative AI, content may include inaccurate or placeholder information. GroqNotes is in beta and all feedback is welcome!")
+        st.write(f"# 🗒️ RenesisTech EasyNote \n## Generate notes from audio in seconds using Groq, Whisper, and Llama3")
+        st.markdown("As with all generative AI, content may include inaccurate or placeholder information. GroqNotes is in beta and all feedback is welcome!")
 
         st.write(f"---")
 
@@ -322,7 +322,7 @@ try:
         st.write(f"---")
 
         st.write("# Customization Settings\n🧪 These settings are experimental.\n")
-        st.write(f"By default, GroqNotes uses Llama3-70b for generating the notes outline and Llama3-8b for the content. This balances quality with speed and rate limit usage. You can customize these selections below.")
+        st.write(f"By default, GroqNotes uses Llama3-70b for generating the notes outline and Llama3-8b for the content. This balances quality with speed and rate limit usage. You can customize these selections below. However based on the models available this can really be changed to any-model there is!")
         outline_model_options = ["llama3-70b-8192", "llama3-8b-8192", "mixtral-8x7b-32768", "gemma-7b-it"]
         outline_selected_model = st.selectbox("Outline generation:", outline_model_options)
         content_model_options = ["llama3-8b-8192", "llama3-70b-8192", "mixtral-8x7b-32768", "gemma-7b-it"]
@@ -330,7 +330,7 @@ try:
 
         
         # Add note about rate limits
-        st.info("Important: Different models have different token and rate limits which may cause runtime errors.")
+        st.info("Important: Different models have different token and rate limits which may cause runtime errors. (This product is a POC and the first version there is a complete roadmap that shall be added here.)")
     
 
     if st.button('End Generation and Download Notes'):
