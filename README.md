@@ -1,15 +1,15 @@
 <h2 align="center">
  <br>
- <img src="https://i.imgur.com/scoiUgD.png" alt="Generate Organizes Notes with GroqNotes" width="150">
+ <img src="https://i.imgur.com/scoiUgD.png" alt="Generate Organizes Notes with ScribeWizard" width="150">
  <br>
  <br>
- GroqNotes: Generate organized notes from audio<br>using Groq, Whisper, and Llama3
+ ScribeWizard: Generate organized notes from audio<br>using Groq, Whisper, and Llama3
  <br>
 </h2>
 
 <p align="center">
- <a href="https://github.com/bklieger/groqnotes/stargazers"><img src="https://img.shields.io/github/stars/bklieger/groqnotes"></a>
- <a href="https://github.com/bklieger/groqnotes/blob/main/LICENSE.md">
+ <a href="https://github.com/bklieger/scribewizard/stargazers"><img src="https://img.shields.io/github/stars/bklieger/scribewizard"></a>
+ <a href="https://github.com/bklieger/scribewizard/blob/main/LICENSE.md">
  <img src="https://img.shields.io/badge/License-MIT-green.svg">
  </a>
 </p>
@@ -23,14 +23,13 @@
 
 <br>
 
-[Demo of GroqNotes](https://github.com/Bklieger/groqnotes/assets/62450410/9c54dab3-21ad-42d6-8504-364e0aa6acde)
-
-> Demo of GroqNotes fast transcription of audio and generation of structured notes
+[Demo of ScribeWizard](https://github.com/user-attachments/assets/c222bea0-3784-4f06-b431-ef81eea5691d)
+> Demo of ScribeWizard fast transcription of audio and generation of structured notes
 
 
 ## Overview
 
-GroqNotes is a streamlit app that scaffolds the creation of structured lecture notes by iteratively structuring and generating notes from transcribed audio lectures using Groq's Whisper API. The app mixes Llama3-8b and Llama3-70b, utilizing the larger model for generating the notes structure and the faster of the two for creating the content.
+ScribeWizard is a streamlit app that scaffolds the creation of structured lecture notes by iteratively structuring and generating notes from transcribed audio lectures using Groq's Whisper API. The app mixes Llama3-8b and Llama3-70b, utilizing the larger model for generating the notes structure and the faster of the two for creating the content.
 
 
 ### Features
@@ -48,36 +47,31 @@ GroqNotes is a streamlit app that scaffolds the creation of structured lecture n
 | [Transformers Explained by Google Cloud Tech](examples/transformers_explained/generated_notes.pdf)             |  https://www.youtube.com/watch?v=SZorAJ4I-sA                                       |
 | [The Essence of Calculus by 3Blue1Brown](examples/essence_calculus/generated_notes.pdf) | https://www.youtube.com/watch?v=WUvTyaaNkzM                                            |
 
-> As with all generative AI, content may include inaccurate or placeholder information. GroqNotes is in beta and all feedback is welcome!
+> As with all generative AI, content may include inaccurate or placeholder information. ScribeWizard is in beta and all feedback is welcome!
 
 ---
 
 ## Quickstart
 
 > [!IMPORTANT]
-> To use GroqNotes, you can use a hosted version at [groqnotes.streamlit.app](https://groqnotes.streamlit.app) or [groqnotes.replit.app](https://groqnotes.streamlit.app).
-> Alternatively, you can run GroqNotes locally with Streamlit using the quickstart instructions.
+> To use ScribeWizard, you can use a hosted version at [scribewizard.streamlit.app](https://scribewizard.streamlit.app).
+> Alternatively, you can run ScribeWizard locally with Streamlit using the quickstart instructions.
 
 
 ### Hosted on Streamlit:
 
-To use GroqNotes, you can use the hosted version at [groqnotes.streamlit.app](https://groqnotes.streamlit.app)
-
-### Hosted on Replit:
-
-You can also use the hosted version on replit at [groqnotes.replit.app](https://groqnotes.streamlit.app)
-> The project can be forked on replit here: [replit.com/@bklieger/groqnotes](https://replit.com/@bklieger/groqnotes)
+To use ScribeWizard, you can use the hosted version at [scribewizard.streamlit.app](https://scribewizard.streamlit.app)
 
 
 ### Run locally:
 
-Alternative, you can run GroqNotes locally with streamlit.
+Alternative, you can run ScribeWizard locally with streamlit.
 
 #### Step 1
 First, you can set your Groq API key in the environment variables:
 
 ~~~
-export $GROQ_API_KEY = gsk_yA...
+export GROQ_API_KEY="gsk_yA..."
 ~~~
 
 This is an optional step that allows you to skip setting the Groq API key later in the streamlit app.
@@ -116,17 +110,12 @@ python3 -m streamlit run main.py
 
 ### Limitations
 
-GroqNotes may generate inaccurate information or placeholder content. It should be used to generate notes for entertainment purposes only.
+ScribeWizard may generate inaccurate information or placeholder content. It should be used to generate notes for entertainment purposes only.
 
 
 ## Contributing
 
 Improvements through PRs are welcome!
-
-
-## One-Click Deployment
-
-[![Deploy to RepoCloud](https://d16t0pc4846x52.cloudfront.net/deploylobe.svg)](https://repocloud.io/details/?app_id=296)
 
 
 ## Changelog
